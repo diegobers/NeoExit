@@ -68,6 +68,21 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+"""
+DATABASES = {
+    'default': {
+    	'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neoexit_db',
+        'USER': 'neoexit_usr',
+        'PASSWORD': 'admin12345',
+        'HOST': 'localhost',
+        #'HOST': 'neoexit.cexkj8aple6u.sa-east-1.rds.amazonaws.com',
+        'PORT': 5432,
+    }
+}
+"""
+
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',

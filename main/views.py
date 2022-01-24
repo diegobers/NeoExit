@@ -10,8 +10,10 @@ from ofertar.models import Oferta
 
 
 def home(request):
+    ofertas = Oferta.objects.all()
+    context = {'oferta':ofertas}
 
-    return render(request, 'home.html')
+    return render(request, 'home.html', context)
 
 
 #class OfertaDetail(DetailView):

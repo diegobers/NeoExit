@@ -1,15 +1,20 @@
 {% extends 'home.html' %}
 {% load crispy_forms_tags %}
-{% block title %}Todas Ofertas{% endblock title %}
+{% block title %}Registrar Ofertas{% endblock title %}
 
-{% block content %}
-  <div class='container my-2'>
-    <a href="{% url 'ofertas' %}">Voltar</a>
-    <form method='POST' action=''>
-        {% csrf_token %}  
-        {{form|crispy}}
-        <button class="btn btn-primary my-1" type="submit" name='submit'>Criar Oferta</button>
-      
-    </form>
+{% block content %} 
+<div class='container'> 
+  <div class='col-md'>
+    <div class='card card-body my-5 w-50 mx-auto'>  
+      <h4 class='font-weight-bold text-center font-italic'>Registrar Oferta</h4> 
+      <form method='POST' action=''>
+          {% csrf_token %}  
+          {{form|crispy}} 
+          <div class='text-center'>
+            <button class='btn btn-primary' type='submit'>Criar Oferta</button>
+          </div>
+      </form> 
+    </div>
   </div>
+</div>
 {% endblock %}

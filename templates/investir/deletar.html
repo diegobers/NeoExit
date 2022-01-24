@@ -2,13 +2,30 @@
 {% block title %}Deletar Investimento{% endblock title %}
 
 {% block content %}
-  <div class='container mt-2 px-5'>
-    <a href="{% url 'investimentos' %}">Voltar</a>
-    <form method='POST' action=''>
-        {% csrf_token %}
-        <h2>Deletar Investimento na Oferta? {{investimento.oferta}}</h2>
-        <input type='submit' value='Deletar'>
-
-    </form>
+<div class='container'> 
+  <div class='col-md'>
+    <div class='card card-body my-5 w-50 mx-auto'>  
+      <h4 class='font-weight-bold'>Detalhe: {{investimento.oferta}}</h4> 
+      <form method='POST' action=''>
+        {% csrf_token %} 
+        <table class='table table-sm text-center'>
+          <tr> 
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>  
+          <tr>
+            <td>{{investimento.valor}}</td>
+            <td>{{investimento.status}}</td>
+          </tr>
+        </table>
+        <h6 class='font-weight-bold font-italic text-center'>Confirmar?</h6>
+        <hr>
+        <div class='text-center'>
+          <button class='btn btn-danger' type='submit'>Deletar</button>
+        </div>
+      </form> 
+    </div>
   </div>
+</div>    
+
 {% endblock %}

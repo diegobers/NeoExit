@@ -1,27 +1,25 @@
 {% extends 'home.html' %}
 {% block title %}Detalhes Investimento{% endblock title %}
 
-
 {% block content %}
 <div class='container row mx-auto'>
   <div class='col-md'>
-  <a href="{% url 'investimentos' %}">Voltar</a>
-    <hr>
-    <div class='card card-body'> 
-      <h4 class='font-weight-bold'>Detalhes Investimento:</h4>    
+    <div class='card card-body my-5 w-75 mx-auto'> 
+      <h4 class='font-weight-bold text-center font-italic'>Detalhes Investimento</h4>    
       <table class='table table-sm'> 
         <tr>
           <th>Oferta</th>
           <th>Valor</th>
           <th>Status</th>
+          <th>Data</th>
         </tr> 
         <tr>
           <td>{{investimento.oferta}}</td>
           <td>{{investimento.valor}}</td>
           <td>{{investimento.status}}</td>
+          <td>{{investimento.data_criacao}}</td>
         </tr> 
       </table>
-      <hr>
     </div>
   </div>    
 </div>  

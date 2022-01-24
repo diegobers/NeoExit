@@ -4,37 +4,37 @@
 {% block content %}
 <div class='container row mx-auto'>
   <div class='col-md'>
-    <hr>
-    <div class='card card-body'> 
-      <h4 class='font-weight-bold'>Todas Ofertas</h4>    
+    <div class='card card-body my-5 w-75 mx-auto'> 
+      <h4 class='font-weight-bold text-center font-italic'>Todas Ofertas</h4>    
       <table class='table table-sm'> 
         <tr>
           <th>Descrição</th>
           <th>Valor</th>
           <th>Status</th>
+          {% if request.user.is_staff %}
+            <th></th>
+            <th></th>
+          {% endif %}
         </tr> 
         {% for o in ofertas %}
         <tr>
           <td><a href="{% url 'detalhar-oferta' o.id %}">{{o.descricao}}</a></td>
           <td>{{o.valor}}</td>
           <td>{{o.status}}</td>
-
           {% if request.user.is_staff %}
             <td><a href="{% url 'alterar-oferta' o.id %}">Alterar</a></td>
             <td><a href="{% url 'deletar-oferta' o.id %}">Deletar</a></td>
           {% endif %}
-        
         </tr>
         {% empty %}
-          <h3>Lista vazia</h3>
+          <h3>Lista vazia!</h3>
         {% endfor %}
       </table>
       {% if request.user.is_staff %}
       <hr>
-      <a class='btn btn-primary mx-5' href="{% url 'registrar-oferta' %}">Nova Oferta</a>
-      {% endif %}
-
-    </div>
+        <a class='btn btn-primary mx-auto w-25' href="{% url 'registrar-oferta' %}">Criar Oferta</a>
+      {% endif %} 
+    </div> 
   </div>    
 </div>  
 

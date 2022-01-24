@@ -13,30 +13,28 @@
   
 	{% block content %}  
 
-    <div class='container my-5 text-center mx-5'>
-      <h1 class='font-weight-bold text-primary'>juão ãoão</h1> 
+    <div class='container my-5 text-center mx-auto'>
+      <h1 class='font-weight-bold text-primary font-italic'>Banner Home</h1> 
     </div>
 
     <div class='container row mx-auto'>
       <div class='col-md'>
-        <div class='card card-body'> 
-          <h4 class='font-weight-bold'>Todas Ofertas:</h4>    
+        <hr>
+        <div class='card card-body my-5 w-75 mx-auto'> 
+          <h4 class='font-weight-bold text-center'>Todas Ofertas</h4>    
           <table class='table table-sm'>
             <tr>
               <th>Descrição</th>
               <th>Valor</th>
               <th>Status</th>
-            </tr> 
-            <!--
+            </tr>  
             {% for o in oferta %}
               <tr>
                 <td><a href="{% url 'detalhar-oferta' o.id %}">{{o.descricao}}</a></td>
                 <td>{{o.valor}}</td>
                 <td>{{o.status}}</td>
               </tr>
-            {% endfor %}
-            -->
-
+            {% endfor %} 
           </table>
         </div>
       </div>    

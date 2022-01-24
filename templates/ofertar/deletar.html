@@ -2,13 +2,29 @@
 {% block title %}Deletar Ofertas{% endblock title %}
 
 {% block content %}
-  <div class='container mt-2 px-5'>
-    <a href="{% url 'ofertas' %}">Voltar</a>
-    <form method='POST' action=''>
-        {% csrf_token %}
-        <h2>Deletar Oferta? {{oferta.descricao}}</h2>
-        <input type='submit' value='Deletar'>
-    </form>
-  </div> 
-
+<div class='container'> 
+  <div class='col-md'>
+    <div class='card card-body my-5 w-50 mx-auto'>  
+      <h4 class='font-weight-bold'>Detalhe: {{oferta.descricao}}</h4> 
+      <form method='POST' action=''>
+        {% csrf_token %}   
+        <table class='table table-sm text-center'>
+          <tr> 
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>  
+          <tr>
+            <td>{{oferta.valor}}</td>
+            <td>{{oferta.status}}</td>
+          </tr>
+        </table>
+        <h6 class='font-weight-bold font-italic text-center'>Confirmar?</h6>
+        <hr>
+        <div class='text-center'>
+          <button class='btn btn-danger' type='submit'>Deletar</button>
+        </div>
+      </form>  
+    </div>
+  </div>
+</div>   
 {% endblock %}
