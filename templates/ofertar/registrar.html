@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Todas Ofertas{% endblock title %}
+
+{% block content %}
+  <div class='container my-2'>
+    <a href="{% url 'ofertas' %}">Voltar</a>
+    <form method='POST' action=''>
+        {% csrf_token %}  
+        {{form|crispy}}
+        <button class="btn btn-primary my-1" type="submit" name='submit'>Criar Oferta</button>
+      
+    </form>
+  </div>
+{% endblock %}

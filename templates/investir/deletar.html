@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+{% block title %}Deletar Investimento{% endblock title %}
+
+{% block content %}
+  <div class='container mt-2 px-5'>
+    <a href="{% url 'investimentos' %}">Voltar</a>
+    <form method='POST' action=''>
+        {% csrf_token %}
+        <h2>Deletar Investimento na Oferta? {{investimento.oferta}}</h2>
+        <input type='submit' value='Deletar'>
+
+    </form>
+  </div>
+{% endblock %}

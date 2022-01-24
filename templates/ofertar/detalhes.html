@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block title %}Detalhes Oferta{% endblock title %}
+
+{% block content %}
+  <div class='container mt-2 px-5 row mx-auto'>
+    <div class='col-md'>
+    <a href="{% url 'ofertas' %}">Voltar</a>
+      <hr>
+      <div class='card card-body'> 
+        <h4 class='font-weight-bold'>Detalhes Oferta: {{oferta.descricao}}</h4>    
+        <table class='table table-sm'> 
+          <tr>
+            <th></th>
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            {% if request.user.is_authenticated %}
+            <td><a href="{% url 'registrar-investimento' oferta.id %}">Investir</a></td>
+            {% endif %}
+            <td>{{oferta.valor}}</td>
+            <td>{{oferta.status}}</td>
+
+          </tr> 
+    
+        </table>
+      </div>
+    </div>
+    </div>
+
+{% endblock  %}

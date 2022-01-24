@@ -1,0 +1,70 @@
+{% extends 'home.html' %}
+{% block title %}Investimentos{% endblock title %}
+
+{% block content %}
+<div class='container row mx-auto'>
+  <div class='col-md'>
+    <hr>
+    <div class='card card-body'> 
+      {% if request.user.is_staff %}
+        <h4 class='font-weight-bold'>Todos Investimentos</h4>
+        <table class='table table-sm'> 
+          <tr>
+            <th>Cliente</th>
+            <th>Oferta</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr> 
+          {% for i in investimentos %}
+            <tr>
+              <td>{{i.cliente}}</td>
+              <td>{{i.oferta}}</td>
+              <td>{{i.valor}}</td>
+              <td>{{i.status}}</td>
+              <td><a href="{% url 'detalhar-investimento' i.id %}">Detalhes</a></td>
+              <td><a href="{% url 'alterar-investimento' i.id %}">Alterar</a></td>
+              <td><a href="{% url 'deletar-investimento' i.id %}">Deletar</a></td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td><h3>Lista vazia</h3></td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <h4 class='font-weight-bold'>Seus Investimentos</h4>    
+        <table class='table table-sm'> 
+          <tr>
+            <th>Cliente</th>
+            <th>Oferta</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr> 
+          {% for i in investimentos %}
+            <tr>
+              <td>{{i.cliente}}</td>
+              <td>{{i.oferta}}</td>
+              <td>{{i.valor}}</td>
+              <td>{{i.status}}</td>
+              <td><a href="{% url 'detalhar-investimento' i.id %}">Detalhes</a></td>
+            </tr>
+          {% empty %}
+          <tr>
+            <td><h3>Lista vazia</h3></td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+      </div>
+  </div>    
+</div>  
+
+
+
+{% endblock  %}

@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Investimentos{% endblock title %}
+
+{% block content %}
+  <div class='container my-2'>
+    <a href="{% url 'investimentos' %}">Voltar</a>
+    <h3 class='font-weight-bold'>Confirmar solicitação:</h3>    
+    <form method='POST' action=''>
+      {% csrf_token %}
+      {{form|crispy}}
+      <button class="btn btn-primary my-1" type="submit" name='submit'>Solicitar Investimento</button>
+       
+    </form>
+  </div>
+
+{% endblock %}
