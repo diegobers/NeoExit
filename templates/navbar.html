@@ -1,0 +1,38 @@
+<nav class='navbar navbar-expand-sm py-3 border-bottom navbar-light'>
+  <div class='container'>
+    <a href="{% url 'home' %}" class='navbar-brand'>
+      <span class='font-weight-bold h3'>NeoExit</span>
+    </a>
+    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse'>
+      <span class='navbar-toggler-icon'> </span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbarCollapse'> 
+
+
+      <ul class='navbar-nav ml-auto'>
+
+
+          <li class='nav-item'>
+            <a href="{% url 'ofertas' %}" class='nav-link lead mr-4 font-weight-bold'>Ofertas</a>
+          </li> 
+          
+        {% if request.user.is_authenticated %}
+          <li class='nav-item'>
+            <a href="{% url 'investimentos' %}" class='nav-link lead mr-4 font-weight-bold'>Investimentos</a>
+          </li> 
+                   
+          <li class='nav-item'>
+            <a href="{% url 'sair' %}" class='nav-link lead mr-4 font-weight-bold'>Sair</a>
+          </li>  
+
+        {% else %}
+          <li class='nav-item'>
+            <a href="{% url 'entrar' %}" class='nav-link lead mr-4 font-weight-bold'>Entrar</a>
+          </li>
+          
+        {% endif %}
+                
+      </ul>
+    </div>
+  </div>
+</nav>

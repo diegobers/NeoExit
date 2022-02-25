@@ -1,0 +1,21 @@
+
+
+{% block content %}
+
+
+  <div class='col-md-6 mx-auto my-4'>
+    <h2>Comentários...</h2>  
+    {% if not forum.comentarios.all %}
+      <p>Nenhum comentário!</p>
+    {% else %}
+      {% for forum in forum.comentarios.all %}
+        <div>
+          <h6><strong>{{forum.cliente}} - {{forum.data}}</strong></h6>
+          <h6 class='pl-3'>{{forum.comentario}}</h6>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <hr>
+  </div>
+
+{% endblock %}

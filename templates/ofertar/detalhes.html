@@ -1,0 +1,61 @@
+{% extends 'home.html' %}
+{% block title %}Detalhes Oferta{% endblock title %}
+
+{% block content %}
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='my-4 mx-auto col-sm col-md col-lg col-xl'> 
+      <div class='card card-body w-100 mx-auto shadow'>
+        <img src="{{oferta.img.url}}" class="card-img-top mx-auto img-fluid" style="width:350px;height:300px;" alt=''> 
+        <div class="table-responsive text-center"> 
+          <table class='table table-sm table-md table-lg table-xl'> 
+            <thead>  
+              <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Data</th>
+              </tr>
+            </thead> 
+            <tbody> 
+              <tr>
+                <td>{{oferta.descricao}}</td>
+                <td>{{oferta.valor}}</td>
+                <td>{{oferta.status}}</td>
+                <td>{{oferta.data_criacao}}</td>
+              </tr> 
+            </tbody>  
+          </table> 
+          {% if request.user.is_authenticated %}
+            <hr>
+            <div class='my-auto text-center'>
+              <a class='btn btn-secondary' href="{% url 'registrar-investimento' oferta.id %}">Investir</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>   
+  </div>  
+</div>
+
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='col-sm-8 col-md-8 col-lg-8 col-xl-8 mx-auto my-1'>
+      <h2>Comentários...</h2>  
+      {% if not oferta.comentarios.all %}
+        <p>Nenhum comentário!</p>
+      {% else %}
+        {% for oferta in oferta.comentarios.all %}
+          <div>
+            <h6><strong>{{oferta.cliente}} - {{oferta.data}}</strong></h6>
+            <h6 class='pl-3'>{{oferta.comentario}}</h6>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <hr>
+    </div>
+  </div>  
+</div>
+{% include 'forum/registrar.html' %} 
+<hr>
+{% endblock  %}

@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% block title %}Detalhes Investimento{% endblock title %}
+
+{% block content %}
+<div class='container mx-auto'>
+  <div class='row'>
+    <div class='mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-100 mx-auto shadow'> 
+        <h4 class='font-weight-bold text-center font-italic'>Detalhes Investimento</h4>    
+        <div class="table-responsive"> 
+          <table class='table text-center table-sm table-md table-lg table-xl'> 
+            <thead>  
+              <tr>
+                <th>Oferta</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Data</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{investimento.oferta}}</td>
+                <td>{{investimento.valor}}</td>
+                <td>{{investimento.status}}</td>
+                <td>{{investimento.data_criacao}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>    
+      </div>
+    </div>    
+  </div>  
+</div>  
+
+{% endblock  %}

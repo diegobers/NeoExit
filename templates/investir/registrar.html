@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Registrar Investimento{% endblock title %}
+
+{% block content %}
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-75 mx-auto shadow'>  
+      <h3 class='font-weight-bold text-center font-italic'>Registrar Investimento</h3>
+      <form method='POST' action=''>
+        {% csrf_token %} 
+        {{form|crispy}} 
+          <div class='text-center'>
+            <button class='btn btn-secondary' type='submit'>Solicitar Investimento</button>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>  
+</div>
+
+{% endblock %}

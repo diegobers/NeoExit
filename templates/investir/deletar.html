@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block title %}Deletar Investimento{% endblock title %}
+
+{% block content %}
+<div class='container mx-auto'> 
+  <div class='row'>
+    <div class='mx-auto col-sm col-md col-lg col-xl'>
+      <div class='card card-body my-5 w-100 mx-auto shadow'>  
+        <h4 class='font-weight-bold'>Detalhe: {{investimento.oferta}}</h4> 
+        <form method='POST' action=''>
+          {% csrf_token %} 
+          <div class="table-responsive"> 
+            <table class='table text-center table-sm table-md table-lg table-xl'> 
+              <thead>  
+                <tr> 
+                  <th>Valor</th>
+                  <th>Status</th>
+                </tr>  
+              </thead>
+              <tbody>  
+                <tr>
+                  <td>{{investimento.valor}}</td>
+                  <td>{{investimento.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          <h6 class='font-weight-bold font-italic text-center'>Confirmar?</h6>
+          <hr>
+          <div class='text-center'>
+            <button class='btn btn-danger' type='submit'>Deletar</button>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>    
+
+{% endblock %}
