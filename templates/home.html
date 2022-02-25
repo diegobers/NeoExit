@@ -24,7 +24,7 @@
           {% for o in oferta %}  
           <div class='col-sm-4 col-md-4 col-lg-4 col-xl-4 m-2 p-2'> 
             <div class="card w-100 mx-auto shadow" style="width: 16rem;" href="{% url 'detalhar-oferta' o.id %}">
-              <img src="{{o.img.url}}" class="card-img-top" alt="...">
+              <img src="" class="card-img-top" alt="...">
               <div class="card-body text-center">
                 <h5 class="card-title">{{o.descricao}}</h5>
                 <p class="card-text">{{o.valor}}</p>
